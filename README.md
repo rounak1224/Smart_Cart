@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+# 🛒 Smart Trolley Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The **Smart Trolley Web App** is a modern shopping cart system built with React and Flask that enables seamless inventory tracking and a smooth checkout experience. Designed to work with a smart cart embedded system, this app allows users to view their cart, checkout securely, and generate a QR-based bill.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📸 Screenshots
 
-### `npm start`
+![Login Page](./screenshots/login.png)
+![Cart Dashboard](./screenshots/dashboard.png)
+*Add screenshots in a `/screenshots` folder*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Features
 
-### `npm test`
+- 🔐 **User & Staff Login**
+- 📦 **View Cart Items**
+- ✅ **Checkout with QR Code**
+- 🧾 **QR Code links to Itemized Bill**
+- ☁️ **AWS API Integration** for fetching and submitting data
+- 🧑‍💻 **Staff Mode** – Coming soon!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧱 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Frontend  | Backend     | APIs (AWS Lambda) | Misc             |
+|-----------|-------------|-------------------|------------------|
+| React 18  | Flask (Python) | GET Cart, POST Checkout | QR Code (qrcode.react) |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔗 APIs Used
 
-### `npm run eject`
+| Action       | Endpoint                                                                 |
+|--------------|--------------------------------------------------------------------------|
+| Get Cart     | `https://5ak85sx806.execute-api.ap-south-1.amazonaws.com/prod/getproduct?user_id=user123` |
+| Checkout     | `https://ufki6yxl7d.execute-api.ap-south-1.amazonaws.com/prod/checkout?user_id=user123` |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+# 1. Clone the repository
+git clone https://github.com/rounak1224/Smart_Cart.git
+cd Smart_Cart
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# 2. Install dependencies
+npm install
 
-## Learn More
+# 3. Start the frontend
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> Make sure your Flask backend is running separately if you're using local API endpoints.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📦 Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+smart-trolley-web/
+├── public/
+├── src/
+│   ├── App.js
+│   ├── Dashboard.js
+│   ├── Login.js
+│   ├── api_temp.js
+│   └── ...
+├── package.json
+└── README.md
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📄 How Checkout Works
 
-### Making a Progressive Web App
+1. User clicks **Checkout** on the dashboard.
+2. App calls the **checkout API**.
+3. API responds with cart summary.
+4. App generates a **QR code** with bill URL.
+5. User scans QR to view the **itemized bill**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🔐 Login Credentials (for testing)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **User:** `user123`
+- **Staff:** Coming Soon...
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## ✨ Upcoming Features
 
-### `npm run build` fails to minify
+- Staff inventory view and control
+- Smart cart RFID integration
+- Payment gateway integration
+- Live stock updates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 📬 Contact
+
+**Developer:** [Rounak Jain](https://github.com/rounak1224)  
+📧 Email: *your-email@example.com* (add if needed)
+
+---
+
+## 📜 License
+
+This project is open source and available under the [MIT License](LICENSE).
