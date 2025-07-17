@@ -11,9 +11,10 @@ const USER_ID = 'user123';
 export const fetchCartItems = async () => {
   try {
     const response = await axios.get(`${GET_CART_API}?user_id=${USER_ID}`);
+    console.log('Fetched Cart Items:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error fetching cart items:', error);
+    console.error('Error fetching cart items:', error.response?.data || error.message);
     return [];
   }
 };
@@ -22,9 +23,10 @@ export const fetchCartItems = async () => {
 export const checkoutCart = async () => {
   try {
     const response = await axios.post(`${CHECKOUT_API}?user_id=${USER_ID}`);
+    console.log('Checkout API Response:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error during checkout:', error);
+    console.error('Error during checkout:', error.response?.data || error.message);
     return null;
   }
 };
